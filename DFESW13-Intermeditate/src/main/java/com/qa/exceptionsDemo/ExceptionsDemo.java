@@ -27,24 +27,48 @@ public class ExceptionsDemo {
 		// anything within the catch {} is what to do if the try creates an error
 		// 'catch this error and do something with it'
 		// If you catch an object of type exception, do this thing	
-		} catch (Exception zipZoop) { 
-			zipZoop.printStackTrace(); // Print to the console the error
+		} catch (Exception exception) { 
+			System.out.println("This wont print");
+			exception.printStackTrace(); // Print to the console the error
 		} finally {
 			System.out.println("This should now print!");
 		}
 		
 	}
 	
-	public void nullPointer() {
-		String name = "reece"; // equal to null
-		System.out.println(name); // you cant print out or access null
-	}
 	
 	// All methods CAN create exceptions
 	// All methods SHOULD have a try catch block 
 	// Null pointer exception - Try to interact with a variable that has not been initialised
-	// Exercise - Create a method that creates a null pointer exception
-	// 			- handles this exception with a catch block
-	// 			- print out "exception handled" in a finally block
+	
+	
+	// within your projects, if you know you have an int that 
+	// shouldn't go below 4, make an exception for it 
+	public void makeCustomException() {
+		try {
+			int num = 5; 
+			
+			// if the value of num is over 2
+			// create and throw a new custom exception
+			if(num > 2) {
+				throw new FancyException("fancy error message");
+			}
+		} catch (FancyException exception) {
+			System.out.println("Catches FancyExceptions");
+			exception.printStackTrace();
+		} 
+		// my second catch is unreachable because ALL code will 
+		// be handled by Exception exception
+		// FancyException IS OF TYPE Exception 
+		catch (Exception exception) {
+			System.out.println("Catches ALL Exceptions");
+			exception.printStackTrace();
+		}
+		
+
+		
+	}
+	
+	
 
 }

@@ -10,8 +10,8 @@ public class Runner {
 		ExceptionsDemo demo = new ExceptionsDemo();
 		
 //		demo.makeError();
-		demo.makeException();
-		demo.nullPointer();
+//		demo.makeException();
+		demo.makeCustomException();
 		
 	}
 
