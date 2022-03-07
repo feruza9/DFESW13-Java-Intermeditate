@@ -1,6 +1,7 @@
 package com.qa.main;
 
 import com.qa.exceptionsDemo.ExceptionsDemo;
+import com.qa.exceptionsDemo.ExceptionsDivideExercise;
 
 public class Runner {
 	
@@ -11,7 +12,10 @@ public class Runner {
 		
 //		demo.makeError();
 //		demo.makeException();
-		demo.makeCustomException();
+//		demo.makeCustomException();
+		
+		ExceptionsDivideExercise exercise = new ExceptionsDivideExercise();
+		System.out.println(exercise.divide(20, 5));
 		
 	}
 
