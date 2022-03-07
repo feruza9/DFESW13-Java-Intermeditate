@@ -36,7 +36,7 @@ public class ExceptionsDemo {
 	}
 	
 	public void nullPointer() {
-		String name; // equal to null
+		String name = "reece"; // equal to null
 		System.out.println(name); // you cant print out or access null
 	}
 	
