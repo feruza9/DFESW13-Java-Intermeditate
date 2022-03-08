@@ -2,6 +2,7 @@ package com.qa.jdbcDemo;
 
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 // Object manager - contains methods to achieve CRUD functionality 
 public class PizzaManager {
@@ -61,6 +62,24 @@ public class PizzaManager {
 			return false;
 		}
 		
+	}
+	
+	public boolean addPizzaLoop() {
+		try {
+			ArrayList<Pizza> pizzaList = new ArrayList<>();
+			pizzaList.add(new Pizza("Veggie Hot", 10, false));
+			pizzaList.add(new Pizza("Pepperoni", 8, true));
+			
+			// for each object of type pizza in my pizzalist
+			for(Pizza pizza : pizzaList) {
+				addPizza(pizza);
+			}
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
