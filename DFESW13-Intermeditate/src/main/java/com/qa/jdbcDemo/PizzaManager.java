@@ -1,6 +1,7 @@
 package com.qa.jdbcDemo;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -76,6 +77,32 @@ public class PizzaManager {
 			}
 			return true;
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	// A method to request ALL data from the database
+	public boolean getAllPizzas() {
+		try {
+			String query = "SELECT * FROM pizzas";
+			// we're saving the return of our executeQuery 
+			// it returns the data we need for our method to work
+			ResultSet result = databaseSetup().executeQuery(query); // returns a ResultSet object
+			// make a method to convert Results -> Pizza objects
+			
+			// if this is true, there is one more record of data below
+			// if returns false, there is no more data 
+			// while loop - easy for true and false, and not knowing when it finishes
+			while(result.next()) {
+				// pass in the current value of result (has moved down a line) 
+				// convert method converts it to a pizza
+				Pizza newPizza = manager.convertResults(result); 
+				System.out.println(newPizza);
+			}
+			
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;

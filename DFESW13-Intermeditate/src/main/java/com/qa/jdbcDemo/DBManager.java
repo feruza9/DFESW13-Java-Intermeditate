@@ -2,6 +2,7 @@ package com.qa.jdbcDemo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 
 // Connect to the database, send queries and receieve data 
 public class DBManager {
@@ -35,6 +36,32 @@ public class DBManager {
 		}
 		System.out.println("Connected to Database succesfully :)");
 		return conn;
+		
+	}
+	
+	
+	// method to convert ResultSet to pizza objects
+	public Pizza convertResults(ResultSet result) {
+		
+		// We need to deconstruct the resultset (excel spreadsheet)
+		// into the variables for an object of type pizza
+		try {
+			// Finding the value for column pizza_id
+			// saving this value as an int called id
+			long id = result.getLong("pizza_id"); 
+			
+			String flavour = result.getString("flavour");
+			int slices = result.getInt("slices");
+			boolean stuffedCrust = result.getBoolean("stuffed_crust");
+			
+			// Create a pizza object out of this values
+			Pizza pizza = new Pizza(id, flavour, slices, stuffedCrust);
+			return pizza;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null; // if there is an error return null
+		}
 		
 	}
 
