@@ -108,5 +108,47 @@ public class PizzaManager {
 			return false;
 		}
 	}
+	
+	// Will return all pizzas where they have stuffed crust = true
+	public boolean getAllStuffedCrust() {
+		try {
+			// MySQL true = 1
+			String query = "SELECT * FROM pizzas WHERE stuffed_crust = true";
+			ResultSet result = databaseSetup().executeQuery(query);
+			
+			// while there is another row of data below the current
+			// move down the row and use the new data
+			while(result.next()) {
+				System.out.println(manager.convertResults(result));
+			}
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	// Get all method that takes in a query
+	public boolean getAllQuery(String query) {
+		try {
+			// MySQL true = 1
+			ResultSet result = databaseSetup().executeQuery(query);
+			
+			// while there is another row of data below the current
+			// move down the row and use the new data
+			System.out.println(" ");
+			System.out.println(query);
+			while(result.next()) {
+				System.out.println(manager.convertResults(result));
+			}
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 
 }
