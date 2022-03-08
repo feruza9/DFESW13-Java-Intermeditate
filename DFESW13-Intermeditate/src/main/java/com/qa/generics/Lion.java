@@ -1,6 +1,6 @@
 package com.qa.generics;
 
-public class Lion {
+public class Lion extends Animal {
 	
 	private boolean eatenSteak;
 

@@ -6,7 +6,8 @@ import java.util.ArrayList;
   They are used to stipulate a type of object for something, but you can stipulate a group of objects
  */
 
-public class Cage<T> {
+// Any object which is of type Animal (Dog, Lion) can be used as a generic
+public class Cage<T extends Animal> {
 	
 	// Generics are created by using <>
 	// ArrayLists<Strings> stringList = new ArrayList<>();
@@ -18,7 +19,7 @@ public class Cage<T> {
 	// Requires me to create an extra class and make Dog and Lion inherit
 //	private Animal animal;
 	
-	// At the moment, we dont know what type of animal
+	// At the moment, we don't know what type of animal
 	// Will be initialised when we create the cage
 	private T animal;
 

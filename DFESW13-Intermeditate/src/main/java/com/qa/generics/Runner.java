@@ -6,9 +6,12 @@ public class Runner {
 		
 		
 		// A cage class that uses the data type Dog
+		// Our cage class can use ANY data type
 		Cage<Dog> kennel = new Cage<>();
 		
 		Cage<Lion> lionCage = new Cage<>();
+		
+		Cage<String> stringCage = new Cage<>(); // Cannot be ran, bevause String IS NOT an Animal
 		
 		// kennel expecting to take in an object of type dog
 		kennel.setAnimal(new Lion(true));
