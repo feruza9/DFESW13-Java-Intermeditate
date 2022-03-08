@@ -29,6 +29,8 @@ public class PizzaManager {
 		try {
 			// the MySQL Query we send to the database to add some data
 			String query = "INSERT INTO pizzas (flavour, slices, stuffed_crust) VALUES (\"Pepperoni\", 12, true);";
+			// what does databaseSetup() return - statement object
+			// statement.executeUpdate(String query)
 			databaseSetup().executeUpdate(query); // Puts our query into the statement object, and runs the query
 			return true; 
 		} catch (Exception e) {
@@ -38,6 +40,26 @@ public class PizzaManager {
 		
 		// if there is no issue, returns true
 		// if there is an exception returns false
+		
+	}
+	
+	// Generally if you don't need data back, methods should return a boolean 
+	// - Testing, sanity testing (we don't wanna see false)
+	// If the method is requesting data (get request) it should return that data
+	
+	
+	// addPizza will take in a pizza object
+	public boolean addPizza(Pizza pizza) {
+		// use our getters and setters
+//		System.out.println(pizza.getFlavour());
+		try {
+			String query = "INSERT INTO pizzas (flavour, slices, stuffed_crust) VALUES (\"" + pizza.getFlavour() + "\", " + pizza.getSlices() + ", " + pizza.isStuffedCrust() + ");";
+			databaseSetup().executeUpdate(query);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 		
 	}
 
