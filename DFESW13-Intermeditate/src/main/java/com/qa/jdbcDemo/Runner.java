@@ -17,7 +17,7 @@ public class Runner {
 		manager.getAllPizzas();
 		manager.getAllStuffedCrust();
 		manager.getAllQuery("SELECT * FROM pizzas WHERE slices > 10");
-
+		manager.deletePizza(5);
 		
 	}
 

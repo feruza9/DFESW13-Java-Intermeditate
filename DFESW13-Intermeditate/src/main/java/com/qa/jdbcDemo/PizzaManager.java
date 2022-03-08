@@ -1,6 +1,7 @@
 package com.qa.jdbcDemo;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -11,13 +12,14 @@ public class PizzaManager {
 	// Creating my DBManager object for use in the code
 	DBManager manager = new DBManager();
 	
+	// Making our connection object a global variable
+	Connection conn = manager.connectDB();
+	
 	// this method returns an empty query statement
 	// by setting the query in this object we can send MySQL queries
 	public Statement databaseSetup() {
 		Statement statement = null;
-		try {
-			Connection conn = manager.connectDB();
-			
+		try {			
 			// Statement is an object, which includes the MySQL query to make
 			// Setup an empty statement object, so we can eventually add the query
 			statement = conn.createStatement();
@@ -26,6 +28,7 @@ public class PizzaManager {
 		}
 		return statement;
 	}
+	
 	
 	public boolean addSetPizza() {
 		try {
@@ -149,6 +152,31 @@ public class PizzaManager {
 			return false;
 		}
 		
+	}
+	
+	// Prepared statements - are written a little differently, a little more complicated in setup
+	// main benefit is we can pass in values directly into a query without using " + getSlices() + ", 
+	
+	public boolean deletePizza(long id) {
+		try {
+			// ? is a stand in for our id variable we will set
+			String query = "DELETE FROM pizzas WHERE pizza_id = ?"; 
+			PreparedStatement preState = conn.prepareStatement(query);
+			
+			// Find the 1st ?, replace it with the value id
+//			preState.set(1, "DELETE");
+//			preState.setString(2, "pizzas");
+//			preState.setString(3, "pizza_id");
+			preState.setLong(1, id);
+			
+			// We don't need to put in a string to tell it what to do, as preState is the object with that string
+			preState.executeUpdate();
+			
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
