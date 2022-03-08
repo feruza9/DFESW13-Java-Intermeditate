@@ -17,8 +17,9 @@ public class Runner {
 		manager.getAllPizzas();
 		manager.getAllStuffedCrust();
 		manager.getAllQuery("SELECT * FROM pizzas WHERE slices > 10");
-		manager.deletePizza(5);
-		
+		manager.deletePizza(10); // this pizza doesn't exist 
+		manager.addPizzaPrepState(new Pizza("four seasons", 32, true));
+		manager.updatePizza(8, new Pizza("new flavour", 123, true));
 	}
 
 }

@@ -170,13 +170,63 @@ public class PizzaManager {
 			preState.setLong(1, id);
 			
 			// We don't need to put in a string to tell it what to do, as preState is the object with that string
+			// telling our statement to run
 			preState.executeUpdate();
 			
-			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
+		return true;
+	}
+	
+	// Same as our addPizza method BUT using a prepared statement
+	public boolean addPizzaPrepState(Pizza pizza) {
+		try {
+			
+			String query = "INSERT INTO pizzas (flavour, slices, stuffed_crust) VALUES (?, ?, ?);"; 
+			PreparedStatement preState = conn.prepareStatement(query);
+			
+			// the first ? = "pepperoni"
+			preState.setString(1, pizza.getFlavour());
+			preState.setInt(2, pizza.getSlices());
+			preState.setBoolean(3, pizza.isStuffedCrust());
+			
+			// Tell our pre statement to run
+			preState.executeUpdate();
+			
+			return true;
+		} catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	
+	// Implementing an update object method
+	// Update requires finding an object (by id) 
+	// passing in new data to replace that object 
+	
+	public boolean updatePizza(int id, Pizza pizza) {
+		try {
+			// update all pizzas and set flavour to be x, slices to be y etc. 
+			// Only update pizzas where pizza_id = i
+			String query = "UPDATE pizzas SET flavour = ?, slices = ?, stuffed_crust = ? WHERE pizza_id = ?";
+			PreparedStatement preStmt = conn.prepareStatement(query);
+			
+			preStmt.setString(1, pizza.getFlavour());
+			preStmt.setInt(2, pizza.getSlices());
+			preStmt.setBoolean(3, pizza.isStuffedCrust());
+			preStmt.setInt(4, id);
+			
+			preStmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 }
