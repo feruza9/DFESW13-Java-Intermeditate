@@ -1,5 +1,11 @@
 package com.qa.solid;
 
+import com.qa.solid.dependencyInversion.Pizza;
+import com.qa.solid.dependencyInversion.PizzaOld;
+import com.qa.solid.dependencyInversion.PizzaOrder;
+import com.qa.solid.dependencyInversion.PizzaOven;
+import com.qa.solid.dependencyInversion.PizzaOvenOld;
+import com.qa.solid.dependencyInversion.exercise.Project;
 import com.qa.solid.lizkov.FlyingBird;
 import com.qa.solid.lizkov.Owl;
 import com.qa.solid.openClosed.Barista;
@@ -52,6 +58,24 @@ public class Runner {
 		
 		// Lizkov Principle
 		learnToFly(new Owl());
+		
+		// Dependency Inversion
+		// Top level classes (Parent, higher up(PizzaOven)) shouldn't depend directly on lower level classes (Pizza) 
+		// Not as reliable classes restricting themselves to actual objects 
+		// Pizza is constructed AND is used to transfer data 
+		
+		// Dependency Inversion - uses an interface to bridge the gap between parent and child class 
+//		PizzaOvenOld oven = new PizzaOvenOld();
+//		oven.cookPizza(new PizzaOld("Pepperoni", 10, true));
+//		
+//		Pizza pizza1 = new Pizza("hawiian", 10, false);
+////		System.out.println(pizza1.prepPizza(new PizzaOrder));
+//		PizzaOven oven2 = new PizzaOven();
+//		System.out.println(oven2.cookPizza(pizza1));
+		System.out.println("               ");
+		Project newProject = new Project();
+		newProject.hireStaff();
+		newProject.developCode();
 		
 		
 	}
