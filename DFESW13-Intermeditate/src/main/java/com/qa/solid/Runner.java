@@ -1,5 +1,9 @@
 package com.qa.solid;
 
+import com.qa.solid.openClosed.Barista;
+import com.qa.solid.openClosed.ChaiLatte;
+import com.qa.solid.openClosed.MilkShake;
+import com.qa.solid.openClosed.Mocha;
 import com.qa.solid.singleResp.Car;
 import com.qa.solid.singleResp.Driver;
 import com.qa.solid.singleResp.Mechanic;
@@ -35,6 +39,14 @@ public class Runner {
 		mechanic.fixVehicle(car2, driver);
 		mechanic.fixVehicle(new Car(6, "gold", 20), driver);
 		
+		// Open Closed 
+		// Create my Barista object
+		Barista barista = new Barista();
+		
+		barista.serveDrink(new ChaiLatte());
+		barista.serveDrink(new Mocha());
+		barista.serveDrink(new MilkShake());
+		barista.serveDessert(new MilkShake());
 		
 	}
 
