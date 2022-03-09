@@ -18,6 +18,7 @@ public class PizzaManager {
 	// this method returns an empty query statement
 	// by setting the query in this object we can send MySQL queries
 	public Statement databaseSetup() {
+		// Statement object - query we want to make with MySQL "SELECT * FROM pizzas"
 		Statement statement = null;
 		try {			
 			// Statement is an object, which includes the MySQL query to make

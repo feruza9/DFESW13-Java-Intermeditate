@@ -12,6 +12,7 @@ public class DBManager {
 	// generally final variables are UPPER CASE
 	
 	final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        // - what driver to use
+								// 3306 port number of mysql
 	final String DB_URL = "jdbc:mysql://localhost:3306/pizzeria"; // what is the URL of the database
 	
 	// If this is pushed to github (publicly) EVERYONE HAS ACCESS TO MY MySQL PASSWORD 
@@ -28,14 +29,14 @@ public class DBManager {
 	// Method which returns a Connection object
 	public Connection connectDB() {
 		try {
-			Class.forName(JDBC_DRIVER);
-			conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+			Class.forName(JDBC_DRIVER); // driver used to let two programs talk to eachother
+			conn = DriverManager.getConnection(DB_URL, USER, PASSWORD); // conn = to everything we need to connect
 		} catch (Exception e) {
 			e.printStackTrace();
 			return conn;
 		}
 		System.out.println("Connected to Database succesfully :)");
-		return conn;
+		return conn; // returns our connection method, with all the connection info we need 
 		
 	}
 	
