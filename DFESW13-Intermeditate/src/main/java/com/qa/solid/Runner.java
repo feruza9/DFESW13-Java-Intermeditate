@@ -1,5 +1,7 @@
 package com.qa.solid;
 
+import com.qa.solid.lizkov.FlyingBird;
+import com.qa.solid.lizkov.Owl;
 import com.qa.solid.openClosed.Barista;
 import com.qa.solid.openClosed.ChaiLatte;
 import com.qa.solid.openClosed.MilkShake;
@@ -48,6 +50,14 @@ public class Runner {
 		barista.serveDrink(new MilkShake());
 		barista.serveDessert(new MilkShake());
 		
+		// Lizkov Principle
+		learnToFly(new Owl());
+		
+		
+	}
+	
+	public static void learnToFly(FlyingBird bird) {
+		System.out.println(bird.fly());
 	}
 
 }
