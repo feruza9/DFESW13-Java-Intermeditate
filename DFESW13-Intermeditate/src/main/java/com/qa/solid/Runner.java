@@ -6,6 +6,9 @@ import com.qa.solid.dependencyInversion.PizzaOrder;
 import com.qa.solid.dependencyInversion.PizzaOven;
 import com.qa.solid.dependencyInversion.PizzaOvenOld;
 import com.qa.solid.dependencyInversion.exercise.Project;
+import com.qa.solid.dependencyInversion.weatherTracker.Email;
+import com.qa.solid.dependencyInversion.weatherTracker.Phone;
+import com.qa.solid.dependencyInversion.weatherTracker.WeatherTracker;
 import com.qa.solid.lizkov.FlyingBird;
 import com.qa.solid.lizkov.Owl;
 import com.qa.solid.openClosed.Barista;
@@ -76,6 +79,11 @@ public class Runner {
 		Project newProject = new Project();
 		newProject.hireStaff();
 		newProject.developCode();
+		
+		System.out.println("   ");
+		WeatherTracker track = new WeatherTracker("sunny");
+		track.notify(new Email());
+		track.notify(new Phone());
 		
 		
 	}
