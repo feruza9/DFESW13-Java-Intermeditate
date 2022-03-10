@@ -37,6 +37,8 @@ public class CoinFlipper {
 		
 		// return if valueOfCoin is equal to call
 		return valueOfCoin == bet;
+		// What outcome haven't I tested here? 
+		
 		
 		// At the minute we can return 
 		// heads, tails or edge 
