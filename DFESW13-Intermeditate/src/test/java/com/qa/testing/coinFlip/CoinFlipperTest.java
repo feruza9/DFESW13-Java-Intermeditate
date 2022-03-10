@@ -23,7 +23,7 @@ public class CoinFlipperTest {
 	@Mock 
 	Random mockRandom;
 	
-	// Regular Random object
+	// Regular Random object (done for example)
 	Random random = new Random();
 	
 	// Create the class we're testing, and specify to put this mock object in it
@@ -43,7 +43,7 @@ public class CoinFlipperTest {
 	}
 	
 	@Test
-	public void actualCoinFlipTest() {
+	public void actualCoinFlipTestHeads() {
 		
 		// Arrange - Sorting the Mockito.when out
 		// Our test should ALWAYS return 30 
@@ -60,6 +60,23 @@ public class CoinFlipperTest {
 		// Asserting if the value is true
 		Assertions.assertTrue(result);
 		
+	}
+	
+	@Test
+	public void coinFlipTails() {
+		
+		// Arrange
+		// when mockRandom.nextInt(102) is called it returns 70 (future tense)
+		// At this specific moment we are telling our object to return this number in the future 
+		Mockito.when(mockRandom.nextInt(102)).thenReturn(70);
+		
+		CoinFlip testValue = CoinFlip.TAILS;
+		
+		// Act - Saving the return of our method as a boolean 
+		boolean result = coinFlipperWithMocks.flipCoin(testValue);
+		
+		// Assert
+		Assertions.assertTrue(result);
 	}
 	
 	// JUnit for our tests
