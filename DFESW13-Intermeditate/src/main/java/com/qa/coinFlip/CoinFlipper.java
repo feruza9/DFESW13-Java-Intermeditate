@@ -21,6 +21,7 @@ public class CoinFlipper {
 		// generates a number between 0 - 101 and saves it as a variable number 
 		// The possible numbers are exclusive, and don't include the max num
 		int number = rng.nextInt(102);
+		System.out.println("random number " + number);
 		
 		if(number <= 50) {
 			// if referring to an enum value, enumName.value
