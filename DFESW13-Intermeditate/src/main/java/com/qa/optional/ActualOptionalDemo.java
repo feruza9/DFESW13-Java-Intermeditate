@@ -29,7 +29,7 @@ public class ActualOptionalDemo {
 				// returns an Optional object containing the value colourInList
 				// colourInList - variable name, red, green, blue 
 				// return an Optional object which contains red, green or Blue 
-				return Optional.of(colourInList);
+				return Optional.of(colourInList); 
 			}  
 		}
 		// returns an empty optional box

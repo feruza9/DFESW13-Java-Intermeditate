@@ -26,6 +26,7 @@ public class Runner {
 		// If the optional contains red, save the value as "red" 
 		// if the optional contains something else (null) return "other colour"
 		String colourString = foundColour.orElse("other colour");
+		// Allows you to convert a null to a String / int 
 		
 		System.out.println(colourString);
 		
