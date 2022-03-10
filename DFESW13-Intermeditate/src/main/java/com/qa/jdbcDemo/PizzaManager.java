@@ -87,6 +87,26 @@ public class PizzaManager {
 		}
 	}
 	
+	public Pizza getPizzaById(int id) {
+		try {
+			String query = "SELECT * FROM pizzas WHERE pizza_id = ?";
+			PreparedStatement preState = conn.prepareStatement(query);
+			preState.setLong(1, id);
+			ResultSet result = preState.executeQuery();
+			
+			while(result.next()) {
+				Pizza newPizza = manager.convertResults(result); 
+				return newPizza;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		return null;
+		
+	}
+	
 	// A method to request ALL data from the database
 	public boolean getAllPizzas() {
 		try {

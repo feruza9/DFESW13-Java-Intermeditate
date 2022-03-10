@@ -73,6 +73,9 @@ public class CoinFlipperTest {
 		Mockito.verify(mockRandom, Mockito.atLeast(1)).nextInt(102); // runs atleast one time
 		Mockito.verify(mockRandom, Mockito.never()).nextInt(50); // never runs
 	}
+	
+	// JUnit is the testing framework, reading tests inbetween @Test 
+	// Mockito is a testing library that helps JUnit tests 
 
 	@Test
 	public void coinFlipTails() {
