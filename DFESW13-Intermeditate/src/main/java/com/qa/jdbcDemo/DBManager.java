@@ -13,7 +13,7 @@ public class DBManager {
 	
 	final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";        // - what driver to use
 								// 3306 port number of mysql
-	final String DB_URL = "jdbc:mysql://localhost:3306/pizzeria"; // what is the URL of the database
+	final String DB_URL = "jdbc:mysql://localhost:3306/testPizzeria"; // what is the URL of the database
 	
 	// If this is pushed to github (publicly) EVERYONE HAS ACCESS TO MY MySQL PASSWORD 
 	// Github Scrapers (bots people have made) know that my email reece.elder@qa.com is connected to password root 
